@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace WitchKitchenDeluxe
 {
-    public class TrashCan : MonoBehaviour, IInteractable
+    public class DisposableStation : MonoBehaviour, IInteractable
     {
         public Vector3 GetPosition()
             => transform.position;

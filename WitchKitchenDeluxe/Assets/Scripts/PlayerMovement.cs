@@ -10,7 +10,6 @@ namespace WitchKitchenDeluxe
         private IPlayerInput input;
         private float speed;
         private float rotateSpeed;
-        private float maxPitch;
 
         private void Awake()
         {

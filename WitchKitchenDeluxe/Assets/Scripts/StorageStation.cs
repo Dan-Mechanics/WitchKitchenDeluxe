@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace WitchKitchenDeluxe
 {
-    public class InfiniteSource : MonoBehaviour, IInteractable
+    public class StorageStation : MonoBehaviour, IInteractable
     {
         private ItemHolder itemHolder;
 
@@ -14,10 +14,9 @@ namespace WitchKitchenDeluxe
 
         public Item Interact(Item input)
         {
-            if (input == null)
-                return itemHolder.GetItem();
-
-            return input;
+            Item temp = itemHolder.GetItem();
+            itemHolder.SetItem(input);
+            return temp;
         }
     }
 }

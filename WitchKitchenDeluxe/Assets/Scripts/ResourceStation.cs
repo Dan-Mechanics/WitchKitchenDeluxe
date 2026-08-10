@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace WitchKitchenDeluxe
 {
-    public class Table : MonoBehaviour, IInteractable
+    public class ResourceStation : MonoBehaviour, IInteractable
     {
         private ItemHolder itemHolder;
 
@@ -14,9 +14,10 @@ namespace WitchKitchenDeluxe
 
         public Item Interact(Item input)
         {
-            Item temp = itemHolder.GetItem();
-            itemHolder.SetItem(input);
-            return temp;
+            if (input == null)
+                return itemHolder.GetItem();
+
+            return input;
         }
     }
 }

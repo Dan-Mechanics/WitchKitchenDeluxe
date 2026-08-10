@@ -1,0 +1,7 @@
+speed 6
+pitchScaling 0.002
+startingPitch 1
+maxPitch 1.5
+interactRadius 1
+rotateSpeed 0.3
+targetFrameRate 300

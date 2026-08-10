@@ -1,0 +1,76 @@
+﻿using System;
+using UnityEngine;
+
+namespace WitchKitchenDeluxe
+{
+    public static class Utils
+    {
+        private static readonly string[] roman = new string[]
+        {
+            string.Empty, "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"
+        };
+
+        public static T StringToEnum<T>(string str)
+        {
+            return (T)Enum.Parse(typeof(T), str);
+        }
+
+        public static bool IsStringValid(string str)
+        {
+            return !string.IsNullOrEmpty(str) && !string.IsNullOrWhiteSpace(str);
+        }
+
+        public static void LowerStringArray(string[] strings)
+        {
+            for (int i = 0; i < strings.Length; i++)
+            {
+                strings[i] = strings[i].ToLowerInvariant();
+            }
+        }
+
+        public static void LockMouse()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        public static void UnlockMouse()
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        public static Vector3 Normalize(Vector3 normal)
+        {
+            normal.Normalize();
+            if (normal == Vector3.zero)
+                normal = Vector3.up;
+
+            return normal;
+        }
+
+        public static int ConvertToTicks(float seconds, int standardTickrate)
+        {
+            return Mathf.RoundToInt(seconds * standardTickrate);
+        }
+
+        public static int GetCurrentServerTick(double networkTime, float standardInterval)
+        {
+            return Mathf.FloorToInt((float)networkTime / standardInterval);
+        }
+
+        public static string GetRoman(int index)
+        {
+            if (index < 0 || index >= roman.Length)
+                return string.Empty;
+
+            return roman[index];
+        }
+
+        public static Vector3 Flatten(Vector3 vec)
+        {
+            vec.y = 0f;
+            return vec;
+        }
+    }
+}

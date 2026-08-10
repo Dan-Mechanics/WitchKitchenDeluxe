@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022e8c924e2879749a69708de48a4950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredTag: MultiplayerMarker
+  requiredTag: Coop
 --- !u!4 &5832981817146529210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5988642640969129800, guid: 7eacbe57ba781fa4093e1a4a43a9703f, type: 3}

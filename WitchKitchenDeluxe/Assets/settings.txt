@@ -1,7 +1,13 @@
-speed 6
+speed 6.3
+customerSpeed 3.3
 pitchScaling 0.002
 startingPitch 1
 maxPitch 1.5
 interactRadius 1
-rotateSpeed 0.3
+rotateSpeed 0.23
 targetFrameRate 300
+speed_potionWait 5
+healing_potionWait 5
+healing_potionBurnWait 8
+green_potionWait 5
+green_potionBurnWait 8

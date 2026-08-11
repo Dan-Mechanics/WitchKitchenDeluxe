@@ -43,7 +43,7 @@ namespace WitchKitchenDeluxe
             if (menuProgression >= menu.Length)
                 menuProgression = menu.Length - 1;
 
-            for (int i = 0; i < maxCustomerSpawnCount; i++)
+            for (int i = 0; i < Random.Range(1, maxCustomerSpawnCount); i++)
             {
                 SpawnCustomer();
             }

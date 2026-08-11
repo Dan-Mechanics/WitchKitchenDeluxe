@@ -10,6 +10,7 @@ namespace WitchKitchenDeluxe
         private IPlayerInput input;
         private float speed;
         private float rotateSpeed;
+        private float tolerance;
 
         private void Awake()
         {
@@ -25,12 +26,13 @@ namespace WitchKitchenDeluxe
             heading.position = transform.position + Vector3.forward;
             speed = settings.Get<float>(nameof(speed));
             rotateSpeed = settings.Get<float>(nameof(rotateSpeed));
+            tolerance = settings.Get<float>(nameof(tolerance));
         }
 
         private void Update()
         {
             Vector3 mov = input.GetMovementInput();
-            if (mov.magnitude > 0.01f)
+            if (mov.magnitude > tolerance)
                 heading.position = transform.position + mov;
 
             controller.Move(Time.deltaTime * speed * mov);

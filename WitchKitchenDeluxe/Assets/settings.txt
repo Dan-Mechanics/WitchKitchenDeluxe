@@ -4,24 +4,28 @@ pitchScaling 0.002
 startingPitch 1
 maxPitch 1.5
 interactRadius 1.2
-rotateSpeed 0.3
+rotateSpeed 0.33
 targetFrameRate 300
 speed_potionWait 3
 healing_potionWait 5
-healing_potionBurnWait 12
+healing_potionBurnWait 20
 green_potionWait 8
-green_potionBurnWait 8
+green_potionBurnWait 15
 maxhealth 3
 
 maxItemsCount 2
-maxCustomerSpawnCount 1
+maxCustomerSpawnCount 3
 
-patiencestart 30
+startingDelay 1
+
+tolerance 0.1
+
+patiencestart 40
 patiencevariance 3
 patienceminValue 5
 patiencescaling -0.1
 
-intervalstart 20
+intervalstart 35
 intervalvariance 3
 intervalminValue 4
 intervalscaling -0.1

@@ -9,6 +9,7 @@ namespace WitchKitchenDeluxe
         public event Action<Customer> OnLeave;
         [SerializeField] private GameObject happyEffect = default;
         [SerializeField] private GameObject angryEffect = default;
+        [SerializeField] private GameObject acceptEffect = default;
         [SerializeField] private UnityEvent<float> onDisplayTimer = default;
         [SerializeField] private UnityEvent<Stack> onDisplayStack = default;
         private float patience;
@@ -47,15 +48,32 @@ namespace WitchKitchenDeluxe
             => transform.position;
 
         public Item Interact(Item input)
+            => stack.item != null ? RegularInteract(input) : UncertainInteract(input);
+
+        public Item RegularInteract(Item input)
         {
             if (input != stack.item)
                 return input;
 
+            Accept();
+            return null;
+        }
+
+        private void Accept()
+        {
             stack.count--;
             onDisplayStack?.Invoke(stack);
+            Instantiate(acceptEffect, transform.position, acceptEffect.transform.rotation);
             if (stack.count <= 0)
                 Leave(true);
+        }
 
+        public Item UncertainInteract(Item input)
+        {
+            if (input == null)
+                return input;
+
+            Accept();
             return null;
         }
     }

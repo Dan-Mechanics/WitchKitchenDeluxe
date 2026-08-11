@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace WitchKitchenDeluxe
@@ -7,33 +9,40 @@ namespace WitchKitchenDeluxe
         [SerializeField] private GameObject customerPrefab = default;
         [SerializeField] private Transform platformHolder = default;
         [SerializeField] private Transform spawnpoint = default;
-        [SerializeField] private Item[] items = default;
+        [SerializeField] private Item[] menu = default;
         private ScalingVariance patience;
         private ScalingVariance interval;
         private int maxCustomerSpawnCount;
+        private float startingDelay;
+        private int menuProgression;
         private int maxItemsCount;
-        private Slot[] slots;
+        private List<Slot> slots;
 
         private void Awake()
         {
-            slots = new Slot[platformHolder.childCount];
-            for (int i = 0; i < slots.Length; i++)
+            slots = new List<Slot>();
+            for (int i = 0; i < platformHolder.childCount; i++)
             {
-                slots[i].platform = platformHolder.GetChild(i);
+                slots.Add(new Slot() { index = i, platform = platformHolder.GetChild(i) });
             }
 
             var settings = Settings.main;
             maxItemsCount = settings.Get<int>(nameof(maxItemsCount));
             maxCustomerSpawnCount = settings.Get<int>(nameof(maxCustomerSpawnCount));
+            startingDelay = settings.Get<float>(nameof(startingDelay));
             patience = new ScalingVariance(settings, nameof(patience));
             interval = new ScalingVariance(settings, nameof(interval));
         }
 
         private void Start()
-            => Invoke(nameof(SpawnCustomerDelayed), interval.Evaluate());
+            => Invoke(nameof(SpawnCustomerDelayed), startingDelay);
 
         private void SpawnCustomerDelayed()
         {
+            menuProgression++;
+            if (menuProgression >= menu.Length)
+                menuProgression = menu.Length - 1;
+
             for (int i = 0; i < maxCustomerSpawnCount; i++)
             {
                 SpawnCustomer();
@@ -45,18 +54,7 @@ namespace WitchKitchenDeluxe
 
         private void SpawnCustomer()
         {
-            int index = 0;
-            Transform platform = null;
-            for (int i = 0; i < slots.Length; i++)
-            {
-                if (slots[i].customer == null)
-                {
-                    platform = slots[i].platform;
-                    index = i;
-                }
-            }
-
-            if (platform == null)
+            if (!TryGetPlatform(out Transform platform, out int index))
                 return;
 
             GameObject go = Instantiate(customerPrefab, spawnpoint.position, Quaternion.identity);
@@ -72,10 +70,24 @@ namespace WitchKitchenDeluxe
             slots[index].customer = customer;
         }
 
+        private bool TryGetPlatform(out Transform platform, out int index)
+        {
+            index = 0;
+            platform = null;
+            var remainder = slots.Where(x => x.customer == null).ToList();
+            if (remainder.Count <= 0)
+                return false;
+
+            var slot = remainder[Random.Range(0, remainder.Count)];
+            platform = slot.platform;
+            index = slot.index;
+            return true;
+        }
+
         private void OnCustomerLeave(Customer customer)
         {
             customer.OnLeave -= OnCustomerLeave;
-            for (int i = 0; i < slots.Length; i++)
+            for (int i = 0; i < slots.Count; i++)
             {
                 if (slots[i].customer == customer)
                     slots[i].customer = null;
@@ -87,16 +99,17 @@ namespace WitchKitchenDeluxe
             float patience = this.patience.Evaluate();
             Stack stack = new Stack()
             {
-                item = items[Random.Range(0, items.Length)],
+                item = menu[Random.Range(0, menuProgression)],
                 count = Random.Range(1, maxItemsCount + 1)
             };
 
             return (patience, stack);
         }
 
-        private struct Slot
+        private class Slot
         {
             public Customer customer;
+            public int index;
             public Transform platform;
         }
     }

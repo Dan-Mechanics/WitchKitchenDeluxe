@@ -1,6 +1,6 @@
 speed 6
 customerSpeed 3.3
-pitchScaling 0.002
+pitchScaling 0.003
 startingPitch 1
 maxPitch 1.5
 interactRadius 1.2

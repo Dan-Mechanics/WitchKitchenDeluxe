@@ -68,13 +68,13 @@ namespace WitchKitchenDeluxe
             var customer = go.GetComponent<Customer>();
             var profile = GetCustomerProfile();
             customer.Initialize(profile.Item1, profile.Item2);
-            customer.OnLeave += OnCustomerLEave;
+            customer.OnLeave += OnCustomerLeave;
             slots[index].customer = customer;
         }
 
-        private void OnCustomerLEave(Customer customer)
+        private void OnCustomerLeave(Customer customer)
         {
-            customer.OnLeave -= OnCustomerLEave;
+            customer.OnLeave -= OnCustomerLeave;
             for (int i = 0; i < slots.Length; i++)
             {
                 if (slots[i].customer == customer)

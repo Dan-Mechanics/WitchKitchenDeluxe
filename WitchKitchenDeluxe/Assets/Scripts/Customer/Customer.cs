@@ -30,9 +30,10 @@ namespace WitchKitchenDeluxe
         private void Leave(bool satisfied)
         {
             timer = 0f;
-            Instantiate(satisfied ? happyEffect : angryEffect, transform.position, happyEffect.transform.rotation);
+            GameObject effect = satisfied ? happyEffect : angryEffect;
+            Instantiate(effect, transform.position, effect.transform.rotation);
             OnLeave?.Invoke(this);
-            Leave(gameObject);
+            Destroy(gameObject);
         }
         
         public void Initialize(float patience, Stack stack)

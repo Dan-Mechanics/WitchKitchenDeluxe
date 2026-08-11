@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: green_potion
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 45ad2017329d96545998d8d25e58973d, type: 3}
-  graphic: {fileID: 4685429023412017476, guid: 815b78c28a44cd940a24b15d9e244716, type: 3}
+  graphic: {fileID: 2068126375608677402, guid: 815b78c28a44cd940a24b15d9e244716, type: 3}

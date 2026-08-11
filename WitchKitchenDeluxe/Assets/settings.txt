@@ -16,7 +16,7 @@ maxhealth 3
 maxItemsCount 2
 maxCustomerSpawnCount 3
 
-startingDelay 1
+startingDelay 5
 
 tolerance 0.1
 
@@ -25,7 +25,7 @@ patiencevariance 3
 patienceminValue 5
 patiencescaling -0.1
 
-intervalstart 35
+intervalstart 28
 intervalvariance 3
 intervalminValue 4
 intervalscaling -0.1

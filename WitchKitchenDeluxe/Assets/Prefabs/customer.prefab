@@ -441,8 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd60a2dd57383d7499f6e232ac264dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0.2
-  endingLookDir: {x: 0, y: 0, z: -1}
+  endingLookDirection: {x: 0, y: 0, z: -1}
 --- !u!114 &5665451629218893869
 MonoBehaviour:
   m_ObjectHideFlags: 0

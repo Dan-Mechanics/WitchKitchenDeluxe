@@ -21,10 +21,10 @@ namespace WitchKitchenDeluxe
 
         private void Start()
         {
-            var easySettings = EasySettings.Current;
+            var settings = Settings.main;
             heading.position = transform.position + Vector3.forward;
-            speed = easySettings.Get<float>(nameof(speed));
-            rotateSpeed = easySettings.Get<float>(nameof(rotateSpeed));
+            speed = settings.Get<float>(nameof(speed));
+            rotateSpeed = settings.Get<float>(nameof(rotateSpeed));
         }
 
         private void Update()

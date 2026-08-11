@@ -10,8 +10,8 @@ namespace WitchKitchenDeluxe
 
         private void Start()
         {
-            var easySettings = EasySettings.Current;
-            customerSpeed = easySettings.Get<float>(nameof(customerSpeed));
+            var settings = Settings.main;
+            customerSpeed = settings.Get<float>(nameof(customerSpeed));
         }
 
         private void Update()
@@ -23,7 +23,7 @@ namespace WitchKitchenDeluxe
             transform.position = pos;
         }
 
-        public void SetPoint(Vector3 point)
+        public void SetDestination(Vector3 point)
         {
             pointSet = true;
             transform.forward = (point - transform.position).normalized;

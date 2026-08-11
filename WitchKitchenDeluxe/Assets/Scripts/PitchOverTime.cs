@@ -14,10 +14,10 @@ namespace WitchKitchenDeluxe
 
         private void Start()
         {
-            var easySettings = EasySettings.Current;
-            pitchScaling = easySettings.Get<float>(nameof(pitchScaling));
-            startingPitch = easySettings.Get<float>(nameof(startingPitch));
-            maxPitch = easySettings.Get<float>(nameof(maxPitch));
+            var settings = Settings.main;
+            pitchScaling = settings.Get<float>(nameof(pitchScaling));
+            startingPitch = settings.Get<float>(nameof(startingPitch));
+            maxPitch = settings.Get<float>(nameof(maxPitch));
         }
 
         private void FixedUpdate()

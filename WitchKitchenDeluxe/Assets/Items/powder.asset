@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2af99cec9cf68479cb9592eb5c2f96, type: 3}
   m_Name: powder
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 780b1d1cde27685468b2a6ad36f8e521, type: 3}
   graphic: {fileID: 4685429023412017476, guid: 7b24d286ee0702645bd19b0f0e12dbc9, type: 3}

@@ -22,9 +22,9 @@ namespace WitchKitchenDeluxe
 
         private void Start()
         {
-            var easySettings = EasySettings.Current;
-            interactRadius = easySettings.Get<float>(nameof(interactRadius));
-         //   interactMask = LayerMask.NameToLayer(easySettings.Get<string>(nameof(interactMask)));
+            var settings = Settings.main;
+            interactRadius = settings.Get<float>(nameof(interactRadius));
+         //   interactMask = LayerMask.NameToLayer(settings.Get<string>(nameof(interactMask)));
         }
 
         private void Update()

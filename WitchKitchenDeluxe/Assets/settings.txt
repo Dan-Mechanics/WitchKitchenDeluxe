@@ -10,7 +10,7 @@ speed_potionWait 3
 healing_potionWait 5
 healing_potionBurnWait 21
 green_potionWait 7
-green_potionBurnWait 15
+green_potionBurnWait 18
 maxhealth 3
 
 maxItemsCount 2
@@ -25,7 +25,7 @@ patiencevariance 3
 patienceminValue 5
 patiencescaling -0.1
 
-intervalstart 26
+intervalstart 25
 intervalvariance 3
 intervalminValue 4
 intervalscaling -0.1

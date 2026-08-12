@@ -2,10 +2,10 @@
 
 namespace WitchKitchenDeluxe
 {
-    public class Done : StationState
+    public class Done : CookingState
     {
-        public GameObject fluid;
-        public Item item;
+        [SerializeField] private GameObject fluid = default;
+        [SerializeField] private Item item = default;
 
         public override void Enter()
             => fluid.SetActive(true);

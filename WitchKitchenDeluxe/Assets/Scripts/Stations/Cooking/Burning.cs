@@ -2,12 +2,15 @@
 
 namespace WitchKitchenDeluxe
 {
-    public class Burning : StationState
+    public class Burning : CookingState
     {
-        public GameObject fluid;
-        public float burnWait;
-        public Item item;
+        [SerializeField] private GameObject fluid = default;
+        [SerializeField] private Item item = default;
+        private float burnWait;
         private float timer;
+
+        private void Start()
+            => burnWait = Settings.main.Get<float>(item.name + nameof(burnWait));
 
         public override void Enter()
         {
@@ -24,7 +27,7 @@ namespace WitchKitchenDeluxe
             return item;
         }
 
-        public override void FixedUpdate()
+        public override void Tick()
         {
             timer += Time.fixedDeltaTime;
             if (timer >= burnWait)

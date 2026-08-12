@@ -8,9 +8,9 @@ namespace WitchKitchenDeluxe
         private Transform heading;
         private Transform arrow;
         private IPlayerInput input;
-        private float speed;
         private float rotateSpeed;
         private float tolerance;
+        private float speed;
 
         private void Awake()
         {

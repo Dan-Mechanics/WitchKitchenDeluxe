@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 3659782019743492260}
   - component: {fileID: 7477645399151452871}
   m_Layer: 3
-  m_Name: combining_station
+  m_Name: combining
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

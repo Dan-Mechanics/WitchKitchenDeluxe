@@ -6,7 +6,7 @@ namespace WitchKitchenDeluxe
 {
     public class Interactor : MonoBehaviour
     {
-        [SerializeField] private Transform interactPoint = default;
+        [SerializeField] private Transform selection = default;
         [SerializeField] private LayerMask mask = default;
         private ItemHolder itemHolder;
         private float interactRadius;
@@ -23,8 +23,10 @@ namespace WitchKitchenDeluxe
         private void Start()
         {
             var settings = Settings.main;
+            float tolerance = settings.Get<float>(nameof(tolerance));
             interactRadius = settings.Get<float>(nameof(interactRadius));
-         //   interactMask = LayerMask.NameToLayer(settings.Get<string>(nameof(interactMask)));
+            selection.localScale = new Vector3(interactRadius * 2f, tolerance, interactRadius * 2f);
+            mask = LayerMask.GetMask(settings.Get<string>(nameof(mask)));
         }
 
         private void Update()
@@ -35,7 +37,7 @@ namespace WitchKitchenDeluxe
 
         private void Interact()
         {
-            Collider[] colliders = Physics.OverlapSphere(interactPoint.position, interactRadius, mask, QueryTriggerInteraction.Ignore);
+            Collider[] colliders = Physics.OverlapSphere(selection.position, interactRadius, mask, QueryTriggerInteraction.Ignore);
 
             interactables.Clear();
             for (int i = 0; i < colliders.Length; i++)

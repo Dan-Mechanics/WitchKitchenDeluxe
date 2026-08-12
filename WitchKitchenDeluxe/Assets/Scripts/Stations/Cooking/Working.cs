@@ -2,11 +2,15 @@
 
 namespace WitchKitchenDeluxe
 {
-    public class Working : StationState
+    public class Working : CookingState
     {
-        public float wait;
-        public GameObject swirl;
+        [SerializeField] private GameObject swirl = default;
+        [SerializeField] private Item item = default;
         private float timer;
+        private float wait;
+
+        private void Start()
+            => wait = Settings.main.Get<float>(item.name + nameof(wait));
 
         public override void Enter()
         {
@@ -14,15 +18,17 @@ namespace WitchKitchenDeluxe
             swirl.SetActive(true);
         }
 
+        /// <summary>
+        /// Do nothing.
+        /// </summary>
         public override Item Interact(Item input)
             => input;
 
-        public override void FixedUpdate()
+        public override void Tick()
         {
             timer += Time.fixedDeltaTime;
             if (timer >= wait)
                 OnYield?.Invoke();
         }
-
     }
 }

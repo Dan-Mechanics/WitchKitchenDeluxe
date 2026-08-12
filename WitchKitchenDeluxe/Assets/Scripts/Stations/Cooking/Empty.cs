@@ -2,13 +2,13 @@
 
 namespace WitchKitchenDeluxe
 {
-    public class Empty : StationState
+    public class Empty : CookingState
     {
-        public Material fluidMat;
-        public Material swirlMat;
-        public Item requiredItem;
-        public MeshRenderer fluid;
-        public MeshRenderer swirl;
+        [SerializeField] private Material fluidMat = default;
+        [SerializeField] private Material swirlMat = default;
+        [SerializeField] private Item requiredItem = default;
+        [SerializeField] private MeshRenderer fluid = default;
+        [SerializeField] private MeshRenderer swirl = default;
 
         public override void Enter()
         {
@@ -22,6 +22,8 @@ namespace WitchKitchenDeluxe
         {
             if (requiredItem == null)
             {
+                // THERE IS NO ITEM REQUIRED, 
+                // EVERYTHING IS ACCEPTED.
                 OnYield?.Invoke();
                 return input;
             }
@@ -30,6 +32,7 @@ namespace WitchKitchenDeluxe
                 if (input != requiredItem)
                     return input;
 
+                // INPUT ITEM MUST MATCH.
                 OnYield?.Invoke();
                 return null;
             }

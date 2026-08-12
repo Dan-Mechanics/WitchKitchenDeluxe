@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1771910090277479300}
+  - component: {fileID: 8254464273455145677}
   m_Layer: 0
   m_Name: herbs_graphic
   m_TagString: Untagged
@@ -33,6 +34,19 @@ Transform:
   - {fileID: 4538452643310523091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8254464273455145677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4685429023412017476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e430839e5052a3a46bacf005f8f18992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 8, z: 0}
 --- !u!1001 &4139208139608798520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e107f4f54ea71dd48a1c9ccf58971c66, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.035057705
+      value: -0.041952275
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e107f4f54ea71dd48a1c9ccf58971c66, type: 3}
       propertyPath: m_LocalPosition.y
@@ -63,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e107f4f54ea71dd48a1c9ccf58971c66, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.103115685
+      value: -0.036227316
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e107f4f54ea71dd48a1c9ccf58971c66, type: 3}
       propertyPath: m_LocalRotation.w
@@ -133,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e107f4f54ea71dd48a1c9ccf58971c66, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00089457
+      value: -0.006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e107f4f54ea71dd48a1c9ccf58971c66, type: 3}
       propertyPath: m_LocalPosition.y
@@ -141,7 +155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e107f4f54ea71dd48a1c9ccf58971c66, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.078343
+      value: -0.061
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e107f4f54ea71dd48a1c9ccf58971c66, type: 3}
       propertyPath: m_LocalRotation.w

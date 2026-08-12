@@ -38,7 +38,6 @@ namespace WitchKitchenDeluxe
         private void Interact()
         {
             Collider[] colliders = Physics.OverlapSphere(selection.position, interactRadius, mask, QueryTriggerInteraction.Ignore);
-
             interactables.Clear();
             for (int i = 0; i < colliders.Length; i++)
             {

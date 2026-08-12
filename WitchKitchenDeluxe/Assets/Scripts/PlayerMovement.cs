@@ -8,6 +8,7 @@ namespace WitchKitchenDeluxe
         private Transform heading;
         private Transform arrow;
         private IPlayerInput input;
+        private Vector3 prevMovement;
         private float rotateSpeed;
         private float tolerance;
         private float speed;
@@ -23,7 +24,8 @@ namespace WitchKitchenDeluxe
         private void Start()
         {
             var settings = Settings.main;
-            heading.position = transform.position + Vector3.forward;
+            prevMovement = Vector3.forward;
+            heading.position = transform.position + prevMovement;
             speed = settings.Get<float>(nameof(speed));
             rotateSpeed = settings.Get<float>(nameof(rotateSpeed));
             tolerance = settings.Get<float>(nameof(tolerance));
@@ -32,10 +34,15 @@ namespace WitchKitchenDeluxe
         private void Update()
         {
             Vector3 mov = input.GetMovementInput();
+            mov = Vector3.ClampMagnitude(mov, 1f);
             if (mov.magnitude > tolerance)
+            {
                 heading.position = transform.position + mov;
+                controller.Move(Time.deltaTime * speed * mov);
+                prevMovement = mov;
+            }
 
-            controller.Move(Time.deltaTime * speed * mov);
+            heading.position = transform.position + prevMovement;
             controller.Move(Physics.gravity * Time.deltaTime);
         }
 

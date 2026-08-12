@@ -10,15 +10,15 @@ mask Interactable
 interactRadius 1.3
 
 speed_potionWait 3
-healing_potionWait 5
-healing_potionBurnWait 21
-green_potionWait 7
+healing_potionWait 6
+healing_potionBurnWait 18
+green_potionWait 6
 green_potionBurnWait 18
 
 maxCustomerSpawnCount 3
 maxItemsCount 2
 
-patiencestart 42
+patiencestart 45
 patiencevariance 3
 patienceminValue 5
 patiencescaling -0.1

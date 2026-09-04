@@ -22,7 +22,7 @@ namespace WitchKitchenDeluxe
 
         private void Start()
         {
-            var settings = Settings.main;
+            var settings = Settings.Current;
             heading.position = transform.position + Vector3.forward;
             speed = settings.Get<float>(nameof(speed));
             rotateSpeed = settings.Get<float>(nameof(rotateSpeed));

@@ -14,7 +14,7 @@ namespace WitchKitchenDeluxe
 
         private void Start()
         {
-            var settings = Settings.main;
+            var settings = Settings.Current;
             pitchScaling = settings.Get<float>(nameof(pitchScaling));
             startingPitch = settings.Get<float>(nameof(startingPitch));
             maxPitch = settings.Get<float>(nameof(maxPitch));

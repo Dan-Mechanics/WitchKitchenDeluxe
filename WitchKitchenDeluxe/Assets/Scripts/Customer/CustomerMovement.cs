@@ -12,7 +12,7 @@ namespace WitchKitchenDeluxe
 
         private void Start()
         {
-            var settings = Settings.main;
+            var settings = Settings.Current;
             customerSpeed = settings.Get<float>(nameof(customerSpeed));
             tolerance = settings.Get<float>(nameof(tolerance));
         }

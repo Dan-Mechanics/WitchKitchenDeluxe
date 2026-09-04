@@ -12,7 +12,7 @@ namespace WitchKitchenDeluxe
 
         private void Start()
         {
-            var settings = Settings.main;
+            var settings = Settings.Current;
             maxHealth = settings.Get<int>(nameof(maxHealth));
             health = maxHealth;
             onHealthChanged?.Invoke(health);

@@ -21,8 +21,8 @@ namespace WitchKitchenDeluxe
 
         private void Awake()
         {
-            burnWait = Settings.main.Get<float>(item.name + nameof(burnWait));
-            wait = Settings.main.Get<float>(item.name + nameof(wait));
+            burnWait = Settings.Current.Get<float>(item.name + nameof(burnWait));
+            wait = Settings.Current.Get<float>(item.name + nameof(wait));
             states = new StationState[] 
             { 
                 new Empty() { requiredItem = requiredItem, fluid = fluid, swirl = swirl, swirlMat = swirlMat, fluidMat = fluidMat },

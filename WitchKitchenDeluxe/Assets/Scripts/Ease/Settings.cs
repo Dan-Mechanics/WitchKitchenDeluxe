@@ -9,7 +9,17 @@ namespace WitchKitchenDeluxe
 {
     public class Settings : MonoBehaviour
     {
-        public static Settings main => FindAnyObjectByType<Settings>();
+        private static Settings settings;
+        public static Settings Current
+        {
+            get
+            {
+                if (!settings)
+                    settings = FindAnyObjectByType<Settings>();
+
+                return settings;
+            }
+        }
         
         [SerializeField] private TextAsset text = default;
         private Dictionary<string, string> dictionary;

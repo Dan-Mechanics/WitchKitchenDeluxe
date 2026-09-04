@@ -26,7 +26,7 @@ namespace WitchKitchenDeluxe
                 slots.Add(new Slot() { index = i, platform = platformHolder.GetChild(i) });
             }
 
-            var settings = Settings.main;
+            var settings = Settings.Current;
             maxItemsCount = settings.Get<int>(nameof(maxItemsCount));
             maxCustomerSpawnCount = settings.Get<int>(nameof(maxCustomerSpawnCount));
             startingDelay = settings.Get<float>(nameof(startingDelay));

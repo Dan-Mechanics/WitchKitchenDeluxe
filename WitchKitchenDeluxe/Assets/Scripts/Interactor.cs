@@ -22,7 +22,7 @@ namespace WitchKitchenDeluxe
 
         private void Start()
         {
-            var settings = Settings.main;
+            var settings = Settings.Current;
             interactRadius = settings.Get<float>(nameof(interactRadius));
          //   interactMask = LayerMask.NameToLayer(settings.Get<string>(nameof(interactMask)));
         }
